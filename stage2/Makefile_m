@@ -1,0 +1,32 @@
+clean:
+	rm -f *.elf *.bin *.cex *.dex *.cex15 *.dex15 *.cexp *.dexp *.cexpp *.dexpp *.cexpp15 *.dexpp15 *.cexppp *.dexppp *.cexpppl *.dexpppl *.cexr *.dexr *.cexr15 *.dexr15 *.cexrp *.dexrp *.bak stage2/*.elf stage2/*.o stage2/*.map *.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+
+all:
+	make -f stage2/Makefile_m clean
+	make -f stage2/Makefile_st2mCr.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+	make -f stage2/Makefile_st2mCd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+	make -f stage2/Makefile_st2mDr.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+	make -f stage2/Makefile_st2mDd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+cexdex:
+	make -f stage2/Makefile_st2mCd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+	make -f stage2/Makefile_st2mDd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+dex:
+	make -f stage2/Makefile_st2mDd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+cex:
+	make -f stage2/Makefile_st2mCd.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+cr:
+	make -f stage2/Makefile_m clean
+	make -f stage2/Makefile_st2mCr.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o
+dr:
+	make -f stage2/Makefile_m clean
+	make -f stage2/Makefile_st2mDr.mak
+	rm -f *.bin *.elf stage2/*.o stage2/*.map lv2/src/*.o lv1/src/*.o debug/src/*.o

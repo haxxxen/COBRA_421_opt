@@ -6,5 +6,6 @@ personal COBRA SYSCALL11 optimized for 4.21 REBUG
 - using syscall11 instead of syscall8, which makes cobra less 'fragile', so I have removed all of these cobra exceptions.
 imho, this should have been done in first place, but well...
 - removed all stealth and security features, since you cannot go online with 4.21
+- added opcode for game plugins loading, same just like vsh plugin loading
 
 credits to Joonie, habib, aldostools, NZV, RouletteBoi, Evilnat

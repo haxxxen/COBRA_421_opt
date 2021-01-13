@@ -112,16 +112,21 @@ void debug_uninstall(void)
 
 #elif defined(LV2)
 
+//thanks to habib now fully working with targetmanager/prodg
+/* LV2_SYSCALL(int, ttyWrite, (int channel, const char* message, int length, int* written))
+{
+	debug_print(message, length);	
+	if (written)
+		*written = length;	
+	return 0;
+} */
 LV2_SYSCALL(int, ttyWrite, (int channel, const char* message, int length, int* written))
 {
 	f_desc_t f;
 	f.addr=(void *)sys_tty_write_symbol;
 	f.toc=(void *)sys_toc_symbol;
 	int (*func)(int, const char *, int, int *)=(void *)&f;
-	// func(channel, message, length, written);
 	debug_print(message, length);
-/* 	if (written)
-		*written = length; */
 	return func(channel, message, length, written);
 }
 
